@@ -1,5 +1,5 @@
 # instagram_clone
 
-A new Flutter project.
+An Instagram UI clone rebuilt with Flutter
 
-## Documentation to follow soon
+## Documentation to follow soon (WIP)
