@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/body.dart';
+import 'body.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -20,31 +20,19 @@ class _HomeState extends State<Home> {
         brightness: Brightness.light,
         backgroundColor: Color(0xFFEEEEEE),
         centerTitle: true,
-        title: Text(
-          'Instagram',
-          style: TextStyle(color: Colors.black),
-        ),
+        title: Text('Instagram', style: TextStyle(color: Colors.black)),
         leading: IconButton(
           // TODO: Replace button icon with instagram icon
-          icon: Icon(
-            Icons.camera_alt_outlined,
-            color: Colors.black,
-          ),
+          icon: Icon(Icons.camera_alt_outlined, color: Colors.black),
           onPressed: () {},
         ),
         actions: <Widget>[
           IconButton(
-            icon: Icon(
-              Icons.tv_outlined,
-              color: Colors.black,
-            ),
+            icon: Icon(Icons.tv_outlined, color: Colors.black),
             onPressed: () {},
           ),
           IconButton(
-            icon: Icon(
-              Icons.send,
-              color: Colors.black,
-            ),
+            icon: Icon(Icons.send, color: Colors.black),
             onPressed: () {},
           ),
         ],

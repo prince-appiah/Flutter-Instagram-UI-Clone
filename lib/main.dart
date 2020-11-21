@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/home.dart';
+import 'home.dart';
 
 void main() => runApp(MyApp());
 

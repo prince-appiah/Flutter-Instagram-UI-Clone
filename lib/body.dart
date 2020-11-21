@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/data.dart';
+import 'data.dart';
+import 'story_list.dart';
 
 class Body extends StatelessWidget {
   const Body({Key key}) : super(key: key);
@@ -10,31 +11,21 @@ class Body extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            Divider(),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Stories',
-                    style: TextStyle(
-                      fontSize: 14,
-                    ),
-                  ),
-                  Text(
-                    'Watch all',
-                    style: TextStyle(
-                      fontSize: 14,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            // Divider(),
+            // Container(
+            //   margin: EdgeInsets.symmetric(horizontal: 20),
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //     children: [
+            //       Text('Stories', style: TextStyle(fontSize: 14)),
+            //       Text('Watch all', style: TextStyle(fontSize: 14)),
+            //     ],
+            //   ),
+            // ),
             Container(
               width: MediaQuery.of(context).size.width,
               margin: EdgeInsets.symmetric(vertical: 15),
-              height: 150,
+              height: 120,
               child: StoryList(),
             ),
             Container(
@@ -45,11 +36,9 @@ class Body extends StatelessWidget {
                 physics: NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
                   return Container(
-                    // padding: edgst,
                     color: Colors.white,
-
                     child: Column(
-                      children: [
+                      children: <Widget>[
                         // TODO: Save all images in assets folder and replace with Image assets
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -116,32 +105,21 @@ class Body extends StatelessWidget {
                             overflow: TextOverflow.visible,
                             text: TextSpan(
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black),
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
                               children: <InlineSpan>[
                                 TextSpan(
                                   text: 'Liked By ',
                                   style: TextStyle(fontWeight: FontWeight.w500),
                                 ),
-                                TextSpan(
-                                  text: 'John,',
-                                ),
-                                TextSpan(
-                                  text: ' Joey,',
-                                ),
-                                TextSpan(
-                                  text: ' Pokemon',
-                                ),
-                                TextSpan(
-                                  text: ' and 78 others',
-                                ),
+                                TextSpan(text: 'John, Pokemon and 278 others'),
                               ],
                             ),
                           ),
                         ),
 
                         Container(
-                          // color: Colors.red,
                           margin: EdgeInsets.symmetric(
                               horizontal: 20, vertical: 10),
                           width: MediaQuery.of(context).size.width,
@@ -150,8 +128,9 @@ class Body extends StatelessWidget {
                             overflow: TextOverflow.visible,
                             text: TextSpan(
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black),
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
                               children: <InlineSpan>[
                                 TextSpan(text: posts[index].username),
                                 TextSpan(
@@ -169,9 +148,9 @@ class Body extends StatelessWidget {
                           child: Text(
                             'November 2020',
                             style: TextStyle(
-                                color: Colors.grey,
-                                fontWeight: FontWeight.w500),
-                            // textAlign: TextAlign.start,
+                              color: Colors.grey,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ),
                       ],
@@ -183,48 +162,6 @@ class Body extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-class StoryList extends StatelessWidget {
-  const StoryList({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      scrollDirection: Axis.horizontal,
-      shrinkWrap: true,
-      children: stories.map((story) {
-        return Column(
-          children: [
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 15),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(80),
-                border: Border.all(
-                  width: 2,
-                  color: Color(0xff8E44AD),
-                ),
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(80),
-                child: Image(
-                  image: AssetImage(story.image),
-                  width: 80,
-                  height: 80,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            SizedBox(height: 10),
-            Text(
-              story.name,
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-          ],
-        );
-      }).toList(),
     );
   }
 }

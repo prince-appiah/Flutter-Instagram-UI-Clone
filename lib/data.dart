@@ -1,4 +1,4 @@
-import 'story.dart';
+import 'story_model.dart';
 import 'post_model.dart';
 
 List<Story> stories = [
